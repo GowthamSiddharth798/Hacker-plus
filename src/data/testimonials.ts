@@ -1,0 +1,48 @@
+import { Testimonial } from '../types';
+
+export const testimonials: Testimonial[] = [
+  {
+    id: '1',
+    name: 'Rajesh Kumar',
+    avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    role: 'Security Analyst',
+    company: 'TechSecure Solutions',
+    content: 'The CEH course was incredibly comprehensive and hands-on. I was able to immediately apply the techniques I learned to improve our company\'s security posture. The instructor was knowledgeable and provided excellent guidance throughout the course.',
+    rating: 5,
+    course: 'Certified Ethical Hacking (CEH) - Complete Course',
+    date: '2024-01-15',
+  },
+  {
+    id: '2',
+    name: 'Priya Sharma',
+    avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    role: 'Web Developer',
+    company: 'Innovate Tech',
+    content: 'The OWASP Top 10 course completely changed how I approach web development. I now understand the security implications of my code and can build much more secure applications. The practical labs were especially valuable.',
+    rating: 4,
+    course: 'Web Application Security and OWASP Top 10',
+    date: '2024-02-20',
+  },
+  {
+    id: '3',
+    name: 'Amit Patel',
+    avatar: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    role: 'IT Manager',
+    company: 'Global Financial Services',
+    content: 'The Digital Forensics course provided me with the skills I needed to lead our incident response team effectively. The hands-on labs with real-world scenarios were incredibly valuable, and I appreciate the thoroughness of the curriculum.',
+    rating: 5,
+    course: 'Digital Forensics and Incident Response',
+    date: '2024-03-05',
+  },
+  {
+    id: '4',
+    name: 'Sunita Reddy',
+    avatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    role: 'Network Engineer',
+    company: 'DataCore Networks',
+    content: 'As someone with a networking background, the CEH course helped me understand security from an attacker\'s perspective. This has been invaluable in hardening our network infrastructure. The labs were challenging and engaging.',
+    rating: 4,
+    course: 'Certified Ethical Hacking (CEH) - Complete Course',
+    date: '2024-01-30',
+  },
+];
