@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search, ShoppingCart, User, Sun, Moon, Zap } from 'lucide-react';
+import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -10,6 +11,17 @@ const Header: React.FC = () => {
   });
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const location = useLocation();
+
+  // New: State for logged-in user
+  const [user, setUser] = useState<FirebaseUser | null>(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser); // set user or null if logged out
+    });
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,14 +94,14 @@ const Header: React.FC = () => {
               Courses
             </Link>
             <Link 
-              to="/instructors" 
+              to="/services" 
               className={`text-sm font-medium transition-colors duration-200 ${
-                location.pathname.includes('/instructors') 
+                location.pathname.includes('/services') 
                   ? 'text-primary-600' 
                   : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500'
               }`}
             >
-              Instructors
+              Services
             </Link>
             <Link 
               to="/about" 
@@ -134,18 +146,31 @@ const Header: React.FC = () => {
                 2
               </span>
             </Link>
-            <Link 
-              to="/login" 
-              className="px-4 py-2 text-sm font-medium text-primary-600 dark:text-primary-500 border border-primary-600 dark:border-primary-500 rounded-md hover:bg-primary-50 dark:hover:bg-dark-600 transition-colors duration-200"
-            >
-              Log In
-            </Link>
-            <Link 
-              to="/signup" 
-              className="px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 transition-colors duration-200"
-            >
-              Sign Up
-            </Link>
+
+            {/* Conditional Rendering */}
+            {!user ? (
+              <>
+                <Link 
+                  to="/login" 
+                  className="px-4 py-2 text-sm font-medium text-primary-600 dark:text-primary-500 border border-primary-600 dark:border-primary-500 rounded-md hover:bg-primary-50 dark:hover:bg-dark-600 transition-colors duration-200"
+                >
+                  Log In
+                </Link>
+                <Link 
+                  to="/signup" 
+                  className="px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 transition-colors duration-200"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <div className="flex items-center space-x-2 px-4 py-2 border border-primary-600 rounded-md cursor-default text-primary-600 dark:text-primary-500">
+                <User className="w-5 h-5" />
+                <span className="text-sm font-medium truncate max-w-xs" title={user.email ?? undefined}>
+                  {user.email}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -195,15 +220,15 @@ const Header: React.FC = () => {
               Courses
             </Link>
             <Link 
-              to="/instructors" 
+              to="/services" 
               className={`block py-2 text-base font-medium ${
-                location.pathname.includes('/instructors') 
+                location.pathname.includes('/services') 
                   ? 'text-primary-600' 
                   : 'text-gray-700 dark:text-gray-300'
               }`}
               onClick={closeMenu}
             >
-              Instructors
+              Services
             </Link>
             <Link 
               to="/about" 
@@ -229,20 +254,31 @@ const Header: React.FC = () => {
             </Link>
             
             <div className="pt-4 space-y-3">
-              <Link 
-                to="/login" 
-                className="block w-full px-4 py-2 text-center text-primary-600 dark:text-primary-500 border border-primary-600 dark:border-primary-500 rounded-md"
-                onClick={closeMenu}
-              >
-                Log In
-              </Link>
-              <Link 
-                to="/signup" 
-                className="block w-full px-4 py-2 text-center text-white bg-primary-600 rounded-md"
-                onClick={closeMenu}
-              >
-                Sign Up
-              </Link>
+              {!user ? (
+                <>
+                  <Link 
+                    to="/login" 
+                    className="block w-full px-4 py-2 text-center text-primary-600 dark:text-primary-500 border border-primary-600 dark:border-primary-500 rounded-md"
+                    onClick={closeMenu}
+                  >
+                    Log In
+                  </Link>
+                  <Link 
+                    to="/signup" 
+                    className="block w-full px-4 py-2 text-center text-white bg-primary-600 rounded-md"
+                    onClick={closeMenu}
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              ) : (
+                <div className="flex items-center space-x-2 px-4 py-2 border border-primary-600 rounded-md cursor-default text-primary-600 dark:text-primary-500">
+                  <User className="w-5 h-5" />
+                  <span className="text-sm font-medium truncate max-w-xs" title={user.email ?? undefined}>
+                    {user.email}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -36,7 +36,7 @@ const Courses: React.FC = () => {
                     {course.shortDescription}
                   </p>
 
-                  <div className="flex items-center mb-4">
+                  {/* <div className="flex items-center mb-4">
                     <img
                       src={course.instructor.avatar}
                       alt={course.instructor.name}
@@ -50,7 +50,7 @@ const Courses: React.FC = () => {
                         Instructor
                       </p>
                     </div>
-                  </div>
+                  </div> */}
 
                   <button
                     className="w-full py-2 mt-auto bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-md transition-colors duration-200"

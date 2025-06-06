@@ -8,7 +8,7 @@ const StartupAnimation: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/home');
+      navigate('/Login');
     }, 2000);
 
     return () => clearTimeout(timer);
