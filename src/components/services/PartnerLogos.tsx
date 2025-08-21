@@ -88,7 +88,7 @@ const PartnerLogos: React.FC = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-        Our Trusted Partners
+        Our Service Partners
       </h2>
       <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6">
         {visiblePartners.map((partner) => (
