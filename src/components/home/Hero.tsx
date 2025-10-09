@@ -28,61 +28,45 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Become a <span className="text-primary-400">Cybersecurity</span> Expert
+              Secure Your <span className="text-primary-400">Business</span> with Expert Cybersecurity Services
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Gain industry-relevant skills in ethical hacking, penetration testing, and digital forensics from experts with real-world experience.
+              Protect your organization from cyber threats with professional penetration testing, audits, and 24/7 incident response services.
             </p>
 
             {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto lg:mx-0">
-              <motion.div 
-                className="flex items-center space-x-2"
-                {...fadeIn}
-                transition={{ delay: 0.1 }}
-              >
+              <motion.div className="flex items-center space-x-2" {...fadeIn} transition={{ delay: 0.1 }}>
                 <CheckCircle className="w-5 h-5 text-primary-400" />
-                <span className="text-gray-300 text-sm md:text-base">Industry-recognized certifications</span>
+                <span className="text-gray-300 text-sm md:text-base">Comprehensive Security Audits</span>
               </motion.div>
-              <motion.div 
-                className="flex items-center space-x-2"
-                {...fadeIn}
-                transition={{ delay: 0.2 }}
-              >
+              <motion.div className="flex items-center space-x-2" {...fadeIn} transition={{ delay: 0.2 }}>
                 <CheckCircle className="w-5 h-5 text-primary-400" />
-                <span className="text-gray-300 text-sm md:text-base">24/7 doubt clarification</span>
+                <span className="text-gray-300 text-sm md:text-base">24/7 Incident Response</span>
               </motion.div>
-              <motion.div 
-                className="flex items-center space-x-2"
-                {...fadeIn}
-                transition={{ delay: 0.3 }}
-              >
+              <motion.div className="flex items-center space-x-2" {...fadeIn} transition={{ delay: 0.3 }}>
                 <CheckCircle className="w-5 h-5 text-primary-400" />
-                <span className="text-gray-300 text-sm md:text-base">Hands-on practical labs</span>
+                <span className="text-gray-300 text-sm md:text-base">Penetration Testing & Risk Analysis</span>
               </motion.div>
-              <motion.div 
-                className="flex items-center space-x-2"
-                {...fadeIn}
-                transition={{ delay: 0.4 }}
-              >
+              <motion.div className="flex items-center space-x-2" {...fadeIn} transition={{ delay: 0.4 }}>
                 <CheckCircle className="w-5 h-5 text-primary-400" />
-                <span className="text-gray-300 text-sm md:text-base">Expert industry mentors</span>
+                <span className="text-gray-300 text-sm md:text-base">Expert Security Consultants</span>
               </motion.div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
               <Link 
-                to="/courses" 
+                to="/services" 
                 className="px-8 py-3 text-base font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 transition-colors duration-200 w-full sm:w-auto text-center"
               >
-                Explore Courses
+                Explore Services
               </Link>
               <Link 
-                to="/signup" 
+                to="/contact" 
                 className="px-8 py-3 text-base font-medium text-primary-400 border border-primary-500 rounded-md hover:bg-dark-700 transition-colors duration-200 w-full sm:w-auto text-center"
               >
-                Sign Up Free
+                Request Consultation
               </Link>
             </div>
           </motion.div>
@@ -97,24 +81,24 @@ const Hero: React.FC = () => {
             <div className="relative rounded-lg overflow-hidden shadow-xl">
               <img 
                 src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="Cybersecurity student learning" 
+                alt="Cybersecurity services" 
                 className="w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent"></div>
               
               {/* Stats overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-wrap justify-between gap-4">
-                <div className="bg-dark-800/90 backdrop-blur-sm p-3 rounded-lg">
+                <div className="bg-dark-800/90 backdrop-blur-sm p-3 rounded-lg text-center">
+                  <div className="text-primary-400 font-bold text-2xl">200+</div>
+                  <div className="text-gray-300 text-sm">Projects Completed</div>
+                </div>
+                <div className="bg-dark-800/90 backdrop-blur-sm p-3 rounded-lg text-center">
                   <div className="text-primary-400 font-bold text-2xl">50+</div>
-                  <div className="text-gray-300 text-sm">Expert Courses</div>
+                  <div className="text-gray-300 text-sm">Corporate Clients</div>
                 </div>
-                <div className="bg-dark-800/90 backdrop-blur-sm p-3 rounded-lg">
-                  <div className="text-primary-400 font-bold text-2xl">15k+</div>
-                  <div className="text-gray-300 text-sm">Students Trained</div>
-                </div>
-                <div className="bg-dark-800/90 backdrop-blur-sm p-3 rounded-lg">
-                  <div className="text-primary-400 font-bold text-2xl">98%</div>
-                  <div className="text-gray-300 text-sm">Success Rate</div>
+                <div className="bg-dark-800/90 backdrop-blur-sm p-3 rounded-lg text-center">
+                  <div className="text-primary-400 font-bold text-2xl">20</div>
+                  <div className="text-gray-300 text-sm">Certified Experts</div>
                 </div>
               </div>
             </div>
@@ -122,7 +106,7 @@ const Hero: React.FC = () => {
             {/* Floating Badge */}
             <div className="absolute -top-5 -right-5 bg-primary-600 text-white rounded-full p-3 shadow-lg flex items-center justify-center">
               <Shield className="w-6 h-6 mr-2" />
-              <span className="font-bold">CEH Certified</span>
+              <span className="font-bold">ISO Certified</span>
             </div>
           </motion.div>
         </div>

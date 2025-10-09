@@ -1,48 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Award, 
-  BookOpen, 
-  Code, 
-  Headphones, 
-  Users, 
-  Clock,
-  CheckCircle,
-  FileText,
-  Zap
-} from 'lucide-react';
+import { Shield, Code, Users, Award, Headphones, Clock } from 'lucide-react';
 
-const WhyChooseUs: React.FC = () => {
+const WhyChooseOurServices: React.FC = () => {
   const features = [
     {
-      icon: <BookOpen className="w-10 h-10 text-primary-500" />,
-      title: 'Comprehensive Curriculum',
-      description: 'Structured learning paths covering theoretical concepts and practical applications.'
+      icon: <Shield className="w-10 h-10 text-primary-500" />,
+      title: 'Robust Security Solutions',
+      description: 'We provide end-to-end protection to secure your business from cyber threats.'
     },
     {
       icon: <Code className="w-10 h-10 text-primary-500" />,
-      title: 'Hands-on Labs',
-      description: 'Practice in real-world environments with guided exercises and challenges.'
+      title: 'Hands-on Expertise',
+      description: 'Our team performs practical security testing, audits, and incident response.'
     },
     {
       icon: <Users className="w-10 h-10 text-primary-500" />,
-      title: 'Expert Instructors',
-      description: 'Learn from industry professionals with years of practical experience.'
+      title: 'Certified Professionals',
+      description: 'Learn from and work with industry-certified cybersecurity experts.'
     },
     {
       icon: <Award className="w-10 h-10 text-primary-500" />,
-      title: 'Certification Preparation',
-      description: 'Dedicated modules to prepare you for industry-recognized certifications.'
+      title: 'Trusted Compliance',
+      description: 'Ensure compliance with global standards like ISO 27001, GDPR, and more.'
     },
     {
       icon: <Headphones className="w-10 h-10 text-primary-500" />,
-      title: 'Multilingual Support',
-      description: 'Get assistance in Telugu, Tamil, Kannada, Hindi, and English.'
+      title: '24/7 Support',
+      description: 'Our team is available round-the-clock for monitoring and incident handling.'
     },
     {
       icon: <Clock className="w-10 h-10 text-primary-500" />,
-      title: 'Lifetime Access',
-      description: 'Unlimited access to course materials and future updates.'
+      title: 'Proven Track Record',
+      description: 'Over hundreds of successful projects delivered across various industries.'
     }
   ];
 
@@ -52,10 +42,10 @@ const WhyChooseUs: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Why Choose CyberSecurity Academy
+            Why Choose Our Cybersecurity Services
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Our comprehensive approach to cybersecurity education sets us apart from other platforms.
+            Our expert-driven approach ensures your business stays secure and compliant in today’s digital world.
           </p>
         </div>
 
@@ -90,7 +80,7 @@ const WhyChooseUs: React.FC = () => {
               Our Impact in Numbers
             </h3>
             <p className="text-primary-200 max-w-2xl mx-auto">
-              We've helped thousands of students transform their careers and secure high-paying jobs in the cybersecurity industry.
+              Hundreds of organizations protected, thousands of vulnerabilities mitigated, and a proven track record of excellence.
             </p>
           </div>
 
@@ -102,8 +92,8 @@ const WhyChooseUs: React.FC = () => {
               transition={{ duration: 0.3 }}
               viewport={{ once: true }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">15,000+</div>
-              <div className="text-primary-200">Students Enrolled</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">500+</div>
+              <div className="text-primary-200">Projects Delivered</div>
             </motion.div>
             <motion.div 
               className="bg-primary-800/50 backdrop-blur-sm p-6 rounded-lg text-center"
@@ -112,8 +102,8 @@ const WhyChooseUs: React.FC = () => {
               transition={{ duration: 0.3, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-primary-200">Expert Courses</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">150+</div>
+              <div className="text-primary-200">Satisfied Clients</div>
             </motion.div>
             <motion.div 
               className="bg-primary-800/50 backdrop-blur-sm p-6 rounded-lg text-center"
@@ -123,7 +113,7 @@ const WhyChooseUs: React.FC = () => {
               viewport={{ once: true }}
             >
               <div className="text-3xl md:text-4xl font-bold text-white mb-2">98%</div>
-              <div className="text-primary-200">Success Rate</div>
+              <div className="text-primary-200">Threats Mitigated</div>
             </motion.div>
             <motion.div 
               className="bg-primary-800/50 backdrop-blur-sm p-6 rounded-lg text-center"
@@ -133,7 +123,7 @@ const WhyChooseUs: React.FC = () => {
               viewport={{ once: true }}
             >
               <div className="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
-              <div className="text-primary-200">Student Support</div>
+              <div className="text-primary-200">Support & Monitoring</div>
             </motion.div>
           </div>
         </div>
@@ -142,4 +132,4 @@ const WhyChooseUs: React.FC = () => {
   );
 };
 
-export default WhyChooseUs;
+export default WhyChooseOurServices;

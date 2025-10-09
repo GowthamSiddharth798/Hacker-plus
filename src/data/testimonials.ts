@@ -10,6 +10,7 @@ export const testimonials: Testimonial[] = [
     content: 'The CEH course was incredibly comprehensive and hands-on. I was able to immediately apply the techniques I learned to improve our company\'s security posture. The instructor was knowledgeable and provided excellent guidance throughout the course.',
     rating: 5,
     course: 'Certified Ethical Hacking (CEH) - Complete Course',
+    service: 'Cybersecurity Training', // <-- added
     date: '2024-01-15',
   },
   {
@@ -22,6 +23,7 @@ export const testimonials: Testimonial[] = [
     rating: 4,
     course: 'Web Application Security and OWASP Top 10',
     date: '2024-02-20',
+    service: 'Cybersecurity Training', // <-- added
   },
   {
     id: '3',
@@ -33,6 +35,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     course: 'Digital Forensics and Incident Response',
     date: '2024-03-05',
+    service: 'Cybersecurity Training', // <-- added
   },
   {
     id: '4',
@@ -44,5 +47,6 @@ export const testimonials: Testimonial[] = [
     rating: 4,
     course: 'Certified Ethical Hacking (CEH) - Complete Course',
     date: '2024-01-30',
+    service: 'Cybersecurity Training', // <-- added
   },
 ];

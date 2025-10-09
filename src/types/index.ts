@@ -97,4 +97,5 @@ export interface Testimonial {
   rating: number;
   course: string;
   date: string;
+  service?: string;
 }

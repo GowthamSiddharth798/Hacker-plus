@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield, Award, BookOpen } from 'lucide-react';
+import { Shield, Award, BookOpen, Zap } from 'lucide-react';
 
-const CtaSection: React.FC = () => {
+const ServicesCtaSection: React.FC = () => {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-dark-900 relative overflow-hidden">
       {/* Background Pattern */}
@@ -21,7 +21,7 @@ const CtaSection: React.FC = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            Start Your Cybersecurity Journey Today
+            Protect Your Business with Our Cybersecurity Services
           </motion.h2>
           
           <motion.p 
@@ -31,7 +31,7 @@ const CtaSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Join thousands of students who have transformed their careers through our comprehensive cybersecurity programs.
+            Our expert team delivers tailored cybersecurity solutions to safeguard your organization from digital threats.
           </motion.p>
 
           {/* Feature Blocks */}
@@ -46,9 +46,9 @@ const CtaSection: React.FC = () => {
               <div className="bg-primary-700/50 p-3 rounded-full w-fit mx-auto mb-4">
                 <Shield className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Industry Certification</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Threat Assessment</h3>
               <p className="text-primary-100 text-sm">
-                Prepare for globally recognized certifications like CEH, CPENT, and more.
+                Identify vulnerabilities and potential risks before they impact your business.
               </p>
             </div>
             
@@ -56,9 +56,9 @@ const CtaSection: React.FC = () => {
               <div className="bg-primary-700/50 p-3 rounded-full w-fit mx-auto mb-4">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Practical Skills</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Security Solutions</h3>
               <p className="text-primary-100 text-sm">
-                Hands-on labs and real-world projects to build your technical expertise.
+                Customized firewall, monitoring, and penetration testing services to secure your network.
               </p>
             </div>
             
@@ -66,9 +66,9 @@ const CtaSection: React.FC = () => {
               <div className="bg-primary-700/50 p-3 rounded-full w-fit mx-auto mb-4">
                 <Award className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Career Support</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Compliance & Support</h3>
               <p className="text-primary-100 text-sm">
-                Resume building, interview preparation, and job placement assistance.
+                Ensure regulatory compliance with ongoing monitoring, incident response, and expert guidance.
               </p>
             </div>
           </motion.div>
@@ -82,17 +82,17 @@ const CtaSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <Link 
-              to="/courses" 
+              to="/services" 
               className="px-8 py-3 text-base font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 transition-colors duration-200 flex items-center"
             >
-              Browse Courses
-              <ArrowRight className="w-5 h-5 ml-2" />
+              Explore Services
+              <Zap className="w-5 h-5 ml-2" />
             </Link>
             <Link 
               to="/contact" 
               className="px-8 py-3 text-base font-medium text-white border border-primary-400 rounded-md hover:bg-primary-800/50 transition-colors duration-200"
             >
-              Contact an Advisor
+              Get a Consultation
             </Link>
           </motion.div>
         </div>
@@ -101,4 +101,4 @@ const CtaSection: React.FC = () => {
   );
 };
 
-export default CtaSection;
+export default ServicesCtaSection;
