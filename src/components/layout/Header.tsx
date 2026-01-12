@@ -131,7 +131,7 @@ const Header: React.FC = () => {
               className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-600 transition-colors duration-200" 
               aria-label="Search"
             >
-              <Search className="w-5 h-5" />
+              {/* <Search className="w-5 h-5" /> */}
             </button>
             <button 
               className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-600 transition-colors duration-200"

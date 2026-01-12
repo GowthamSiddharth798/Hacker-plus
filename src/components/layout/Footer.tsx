@@ -27,13 +27,45 @@ const Footer: React.FC = () => {
                 <MapPin className="w-5 h-5 text-primary-500 mt-0.5" />
                 <span className="text-sm">Hyderabad, Telangana, India</span>
               </div>
+             <div className="flex items-start space-x-3">
+  <Phone className="w-5 h-5 text-primary-500 mt-0.5" />
+  <div className="flex flex-col text-sm">
+    <a
+      href="tel:+918309729774"
+      className="hover:text-primary-400 transition-colors"
+    >
+      +91 8309729774
+    </a>
+    <a
+      href="tel:+919346159671"
+      className="hover:text-primary-400 transition-colors"
+    >
+      +91 9346159671
+    </a>
+  </div>
+</div>
+
+             <div className="flex items-start space-x-3">
+  <Mail className="w-5 h-5 text-primary-500 mt-0.5" />
+  <div className="flex flex-col text-sm">
+    <a
+      href="mailto:hackerplustechnologies@gmail.com"
+      className="hover:text-primary-400 transition-colors"
+    >
+      hackerplustechnologies@gmail.com
+    </a>
+    <a
+      href="mailto:service@hackerplus.in"
+      className="hover:text-primary-400 transition-colors"
+    >
+      For Service: service@hackerplus.in
+    </a>
+  </div>
+</div>
+
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primary-500" />
-                <span className="text-sm">+91 8309729774</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary-500" />
-                <span className="text-sm">hackerplustechnologies@gmail.com</span>
+                <Linkedin className="w-5 h-5 text-primary-500" />
+                <span className="text-sm">https://www.linkedin.com/in/manikantavarmag</span>
               </div>
             </div>
           </div>

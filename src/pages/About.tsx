@@ -79,51 +79,72 @@ const About: React.FC = () => {
           </div>
 
           {/* Instructors Section */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-              Meet Our Instructors
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: 'Jack Span',
-                  certifications: 'CEH, CSA, CPENT, ISO 27001',
-                  image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
-                },
-                {
-                  name: 'John Mike',
-                  certifications: 'CEH Master, IoT Security, CPENT',
-                  image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg'
-                },
-                {
-                  name: 'Jodge Harry',
-                  certifications: 'CEH, Full Stack + Forensics',
-                  image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg'
-                }
-              ].map((instructor) => (
-                <div 
-                  key={instructor.name}
-                  className="bg-white dark:bg-dark-800 rounded-lg shadow-soft overflow-hidden"
-                >
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={instructor.image}
-                      alt={instructor.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      {instructor.name}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      {instructor.certifications}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+<div>
+  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+    Meet Our Instructors
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {[
+      {
+        name: 'S. S. Sai',
+        certifications:
+          'CEH, CSA, ISO/IEC 27001:2022 Lead Auditor, ISO/IEC 42001:2023 Lead Auditor, CPENT',
+        image:
+          'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
+        linkedin: 'https://www.linkedin.com/in/shanmukhasrisaikommuri'
+      },
+     {
+  name: 'Varma',
+  certifications: 'CEH Master, IoT Security, CPENT',
+  image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
+  linkedin: 'https://www.linkedin.com/in/manikantavarmag'
+}
+,
+      {
+        name: 'Jodge Harry',
+        certifications: 'CEH, Full Stack + Forensics',
+        image:
+          'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg'
+      }
+    ].map((instructor) => (
+      <div
+        key={instructor.name}
+        className="bg-white dark:bg-dark-800 rounded-lg shadow-soft overflow-hidden"
+      >
+        <div className="h-48 overflow-hidden">
+          <img
+            src={instructor.image}
+            alt={instructor.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="p-6">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            {instructor.name}
+          </h3>
+
+          <p className="text-gray-600 dark:text-gray-400 mb-3">
+            {instructor.certifications}
+          </p>
+
+          {instructor.linkedin && (
+            <a
+              href={instructor.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-primary-500 hover:underline text-sm font-medium"
+            >
+              View LinkedIn Profile →
+            </a>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
         </div>
       </div>
     </Layout>
