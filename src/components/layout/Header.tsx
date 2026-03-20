@@ -41,7 +41,7 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-2">
             <Zap className="w-8 h-8 text-primary-600" />
             <div>
-              <p className="font-bold text-gray-900 dark:text-white">CyberSecurity</p>
+              <p className="font-bold text-gray-900 dark:text-white">CyberServices</p>
               <p className="text-xs text-primary-600">by Hacker Plus Technologies</p>
             </div>
           </Link>

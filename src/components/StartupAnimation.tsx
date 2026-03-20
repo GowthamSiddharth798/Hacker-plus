@@ -25,7 +25,7 @@ const StartupAnimation: React.FC = () => {
         <Zap className="w-16 h-16 text-primary-500" />
         <div className="flex flex-col">
           <span className="text-3xl font-bold text-white">CyberSecurity</span>
-          <span className="text-lg font-medium text-primary-400">Academy</span>
+          <span className="text-lg font-medium text-primary-400">Services</span>
         </div>
       </motion.div>
     </div>
