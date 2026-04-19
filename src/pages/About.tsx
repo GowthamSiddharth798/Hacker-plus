@@ -89,7 +89,7 @@ const About: React.FC = () => {
       {
         name: 'S. S. Sai',
         certifications:
-          'CEH, CSA, ISO/IEC 27001:2022 Lead Auditor, ISO/IEC 42001:2023 Lead Auditor, CPENT,LPT MASTER',
+          'CEH, CSA, ISO/IEC 27001:2022 Lead Auditor,CRTOM,CCEP, CPENT',
         image:
           'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
         linkedin: 'https://www.linkedin.com/in/shanmukhasrisaikommuri'
