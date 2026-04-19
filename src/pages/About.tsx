@@ -96,7 +96,7 @@ const About: React.FC = () => {
       },
      {
   name: 'Varma',
-  certifications: 'CEH Master, IoT Security, CPENT,LPT MASTER',
+  certifications: 'CEH Master, IoT Security, Certified Ethical Hacker Practical',
   image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
   linkedin: 'https://www.linkedin.com/in/manikantavarmag'
 }
