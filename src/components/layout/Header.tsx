@@ -66,7 +66,12 @@ const Header: React.FC = () => {
               Home
             </NavLink>
 
-            <Link
+           
+
+            <NavLink to="/services" className={({ isActive }) => navClass(isActive)}>
+              Services
+            </NavLink>
+             <Link
               to="/courses"
               target="_blank"
               rel="noopener noreferrer"
@@ -74,10 +79,6 @@ const Header: React.FC = () => {
             >
               Academy
             </Link>
-
-            <NavLink to="/services" className={({ isActive }) => navClass(isActive)}>
-              Services
-            </NavLink>
 
             <NavLink to="/about" className={({ isActive }) => navClass(isActive)}>
               About
