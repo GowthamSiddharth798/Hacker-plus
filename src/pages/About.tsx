@@ -89,14 +89,14 @@ const About: React.FC = () => {
       {
         name: 'S. S. Sai',
         certifications:
-          'CEH, CSA, ISO/IEC 27001:2022 Lead Auditor, ISO/IEC 42001:2023 Lead Auditor, CPENT',
+          'CEH, CSA, ISO/IEC 27001:2022 Lead Auditor, ISO/IEC 42001:2023 Lead Auditor, CPENT,LPT MASTER',
         image:
           'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
         linkedin: 'https://www.linkedin.com/in/shanmukhasrisaikommuri'
       },
      {
   name: 'Varma',
-  certifications: 'CEH Master, IoT Security, CPENT',
+  certifications: 'CEH Master, IoT Security, CPENT,LPT MASTER',
   image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
   linkedin: 'https://www.linkedin.com/in/manikantavarmag'
 }

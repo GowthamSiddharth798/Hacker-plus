@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Zap } from 'lucide-react';
 import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(
-    localStorage.getItem('theme') === 'dark'
-  );
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
   const [user, setUser] = useState<FirebaseUser | null>(null);
 
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  // Firebase auth
   useEffect(() => {
     const auth = getAuth();
-    return onAuthStateChanged(auth, setUser);
+    const unsubscribe = onAuthStateChanged(auth, setUser);
+    return unsubscribe;
   }, []);
 
+  // Scroll effect
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 10);
+      });
+    };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Dark mode apply
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
@@ -31,7 +39,9 @@ const Header: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition ${
-        isScrolled ? 'bg-white dark:bg-dark-700 shadow-soft' : 'bg-transparent'
+        isScrolled
+          ? 'bg-white dark:bg-dark-700 shadow-soft'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -41,42 +51,44 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-2">
             <Zap className="w-8 h-8 text-primary-600" />
             <div>
-              <p className="font-bold text-gray-900 dark:text-white">CyberServices</p>
-              <p className="text-xs text-primary-600">by Hacker Plus Technologies</p>
+              <p className="font-bold text-gray-900 dark:text-white">
+                CyberServices
+              </p>
+              <p className="text-xs text-primary-600">
+                by Hacker Plus Technologies
+              </p>
             </div>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-
-            <Link to="/" className={navClass(location.pathname === '/')}>
+            <NavLink to="/" className={({ isActive }) => navClass(isActive)}>
               Home
-            </Link>
+            </NavLink>
 
-            {/* ✅ COURSES → NEW TAB */}
-            <a
-              href="/courses"
+            <Link
+              to="/courses"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600"
             >
               Academy
-            </a>
+            </Link>
 
-            <Link to="/services" className={navClass(location.pathname.includes('/services'))}>
+            <NavLink to="/services" className={({ isActive }) => navClass(isActive)}>
               Services
-            </Link>
+            </NavLink>
 
-            <Link to="/about" className={navClass(location.pathname === '/about')}>
+            <NavLink to="/about" className={({ isActive }) => navClass(isActive)}>
               About
-            </Link>
+            </NavLink>
 
-            <Link to="/contact" className={navClass(location.pathname === '/contact')}>
+            <NavLink to="/contact" className={({ isActive }) => navClass(isActive)}>
               Contact
-            </Link>
+            </NavLink>
           </nav>
 
-          {/* Right Icons */}
+          {/* Right */}
           <div className="hidden md:flex items-center space-x-4">
             <button onClick={() => setIsDarkMode(!isDarkMode)}>
               {isDarkMode ? <Sun /> : <Moon />}
@@ -89,9 +101,9 @@ const Header: React.FC = () => {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile button */}
           <button
-            className="md:hidden"
+            className="md:hidden z-50"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -99,36 +111,61 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-dark-700 px-4 py-4 space-y-3">
+      {/* Mobile Dropdown */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="bg-white dark:bg-dark-700 px-4 py-4 space-y-4">
 
-          <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          {menuItem("/", "Home", 0, setIsMenuOpen)}
+          {menuItem("/courses", "Courses", 1, setIsMenuOpen, true)}
+          {menuItem("/services", "Services", 2, setIsMenuOpen)}
+          {menuItem("/about", "About", 3, setIsMenuOpen)}
+          {menuItem("/contact", "Contact", 4, setIsMenuOpen)}
 
-          {/* ✅ COURSES → NEW TAB (MOBILE) */}
-          <a
-            href="/courses"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setIsMenuOpen(false)}
-            className="block"
+          {/* Theme toggle */}
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="flex items-center space-x-2"
           >
-            Courses
-          </a>
-
-          <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
-          <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
-          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-
+            {isDarkMode ? <Sun /> : <Moon />}
+            <span>Toggle Theme</span>
+          </button>
         </div>
-      )}
+      </div>
     </header>
   );
 };
 
+/* 🔥 Animated menu item */
+const menuItem = (
+  path: string,
+  label: string,
+  index: number,
+  setIsMenuOpen: (v: boolean) => void,
+  newTab = false
+) => (
+  <Link
+    to={path}
+    target={newTab ? "_blank" : "_self"}
+    rel="noopener noreferrer"
+    onClick={() => setIsMenuOpen(false)}
+    className="block transform transition-all duration-300"
+    style={{
+      transitionDelay: `${index * 100}ms`,
+    }}
+  >
+    {label}
+  </Link>
+);
+
 const navClass = (active: boolean) =>
   `text-sm font-medium transition ${
-    active ? 'text-primary-600' : 'text-gray-700 dark:text-gray-300 hover:text-primary-600'
+    active
+      ? 'text-primary-600'
+      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600'
   }`;
 
 export default Header;
