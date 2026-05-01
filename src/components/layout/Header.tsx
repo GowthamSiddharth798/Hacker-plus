@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Zap } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import logo from './logo.png';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,37 +42,52 @@ const Header: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition ${
         isScrolled
           ? 'bg-white dark:bg-dark-700 shadow-soft'
-          : 'bg-transparent'
+          : 'bg-white/80 dark:bg-dark-900/80 backdrop-blur-md'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <Zap className="w-8 h-8 text-primary-600" />
+          {/* 🔥 Logo Section */}
+          <Link 
+            to="/" 
+            className="flex items-center space-x-3 group transition-all duration-300"
+          >
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+            />
+
             <div>
-              <p className="font-bold text-gray-900 dark:text-white">
+              {/* Gradient Title */}
+              <p className="font-bold text-lg tracking-wide bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 CyberServices
               </p>
-              <p className="text-xs text-primary-600">
-                by Hacker Plus Technologies
+
+              {/* Highlighted Brand */}
+              <p className="text-s text-gray-500 dark:text-gray-400">
+                by{" "}
+                <span className="font-semibold text-primary-600 relative">
+                  Hacker Plus
+                  <span className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </span>{" "}
+                Technologies
               </p>
             </div>
           </Link>
 
-          {/* Desktop */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <NavLink to="/" className={({ isActive }) => navClass(isActive)}>
               Home
             </NavLink>
 
-           
-
             <NavLink to="/services" className={({ isActive }) => navClass(isActive)}>
               Services
             </NavLink>
-             <Link
+
+            <Link
               to="/courses"
               target="_blank"
               rel="noopener noreferrer"
@@ -89,22 +105,38 @@ const Header: React.FC = () => {
             </NavLink>
           </nav>
 
-          {/* Right */}
+          {/* 🔥 Right Section */}
           <div className="hidden md:flex items-center space-x-4">
-            <button onClick={() => setIsDarkMode(!isDarkMode)}>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="p-2 rounded-md text-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            >
               {isDarkMode ? <Sun /> : <Moon />}
             </button>
 
+            {/* Login/User */}
             {!user ? (
-              <Link to="/login" className="btn-outline">Login</Link>
+              <Link
+                to="/login"
+                className="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 
+                           text-gray-800 dark:text-white 
+                           hover:bg-gray-100 dark:hover:bg-gray-700 
+                           transition"
+              >
+                Login
+              </Link>
             ) : (
-              <span className="text-sm">{user.email}</span>
+              <span className="text-sm text-gray-800 dark:text-white">
+                {user.email}
+              </span>
             )}
           </div>
 
-          {/* Mobile button */}
+          {/* Mobile Menu Button */}
           <button
-            className="md:hidden z-50"
+            className="md:hidden z-50 text-gray-800 dark:text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -126,10 +158,10 @@ const Header: React.FC = () => {
           {menuItem("/about", "About", 3, setIsMenuOpen)}
           {menuItem("/contact", "Contact", 4, setIsMenuOpen)}
 
-          {/* Theme toggle */}
+          {/* Theme Toggle */}
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 text-gray-800 dark:text-white"
           >
             {isDarkMode ? <Sun /> : <Moon />}
             <span>Toggle Theme</span>
@@ -140,7 +172,7 @@ const Header: React.FC = () => {
   );
 };
 
-/* 🔥 Animated menu item */
+/* Menu Item */
 const menuItem = (
   path: string,
   label: string,
@@ -153,7 +185,7 @@ const menuItem = (
     target={newTab ? "_blank" : "_self"}
     rel="noopener noreferrer"
     onClick={() => setIsMenuOpen(false)}
-    className="block transform transition-all duration-300"
+    className="block transform transition-all duration-300 text-gray-800 dark:text-white"
     style={{
       transitionDelay: `${index * 100}ms`,
     }}
