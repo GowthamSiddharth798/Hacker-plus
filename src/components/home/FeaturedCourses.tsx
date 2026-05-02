@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield, Users, Clock } from 'lucide-react';
+import { ArrowRight, Users, Clock } from 'lucide-react';
 
 const services = [
   {

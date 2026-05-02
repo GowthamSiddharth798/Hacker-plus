@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Award, BookOpen, Zap } from 'lucide-react';
+import { Shield, Award, BookOpen, ShieldCheck } from 'lucide-react';
+import logo from "../layout/logo.png";
 
 const ServicesCtaSection: React.FC = () => {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-dark-900 relative overflow-hidden">
+      
       {/* Background Pattern */}
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-500/30 blur-3xl"></div>
@@ -14,6 +16,18 @@ const ServicesCtaSection: React.FC = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+
+          {/* 🔥 Optional Logo (you can remove if not needed) */}
+          <motion.img
+            src={logo}
+            alt="Logo"
+            className="h-16 mx-auto mb-6 opacity-90"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          />
+
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -86,8 +100,9 @@ const ServicesCtaSection: React.FC = () => {
               className="px-8 py-3 text-base font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 transition-colors duration-200 flex items-center"
             >
               Explore Services
-              <Zap className="w-5 h-5 ml-2" />
+              <ShieldCheck className="w-5 h-5 ml-2" />
             </Link>
+
             <Link 
               to="/contact" 
               className="px-8 py-3 text-base font-medium text-white border border-primary-400 rounded-md hover:bg-primary-800/50 transition-colors duration-200"
@@ -95,6 +110,7 @@ const ServicesCtaSection: React.FC = () => {
               Get a Consultation
             </Link>
           </motion.div>
+
         </div>
       </div>
     </section>
